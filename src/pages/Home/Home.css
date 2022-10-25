@@ -1,0 +1,7 @@
+.imge{
+    background-image: url(../../assets/image/banner.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 580px;
+}
