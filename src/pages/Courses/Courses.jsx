@@ -4,7 +4,7 @@ import Category from '../../components/Category/Category';
 
 const Courses = () => {
     const categories = useLoaderData();
-    console.log(categories)
+    // console.log(categories)
     return (
         <div className='px-4 py-5 md:px-14 lg:px-14'>
             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-3">

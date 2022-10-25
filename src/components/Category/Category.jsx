@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Category = ({category}) => {
     const {rating, title, img_url, details, id, author} = category;
-    console.log(category);
+    // console.log(category);
     return (
         <div className='border-2 border-rose-600 relative h-[28rem]'>
             <img className='w-full h-[200px]' src={img_url} alt="" />

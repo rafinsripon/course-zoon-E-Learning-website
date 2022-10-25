@@ -25,7 +25,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <CategoryDetails />,
-                loader: () => fetch('http://localhost:5000/categories')
+                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             {
                 path: '/faq',
