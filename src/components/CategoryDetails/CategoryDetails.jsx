@@ -6,7 +6,7 @@ import { FcAlarmClock, FcManager, FcNext } from "react-icons/fc";
 const CategoryDetails = () => {
     const category = useLoaderData();
     const {otherInfo, title, author, img_url, details, requirements} = category;
-    console.log(category)
+    // console.log(category)
     return (
         <div className='mb-20 '>
             <div className='relative'>

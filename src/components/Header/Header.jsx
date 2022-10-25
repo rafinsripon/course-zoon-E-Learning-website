@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const {user} = useContext(AuthContext)
+    console.log(user);
     return (
     <div className="px-4 py-5 md:px-14 lg:px-16 border-b-2 border-b-gray-200">
       <div className="relative flex items-center justify-between">
@@ -77,6 +81,12 @@ const Header = () => {
           </ul>
         </div>
         <ul className="flex items-center hidden space-x-8 lg:flex">
+          <li className='flex gap-4'>
+            <div className=''>
+            {user?.displayName}
+            </div>
+              <img className='w-6 h-6 rounded-full' src={user?.photoURL} alt="" />
+          </li>
           <li>
             <Link
               to="/login"
