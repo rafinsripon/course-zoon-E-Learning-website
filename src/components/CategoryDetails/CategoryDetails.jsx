@@ -20,10 +20,13 @@ const CategoryDetails = () => {
                 </div>
             </div>
             {/* ======header */}
-            <div className="mt-2 border-b-slate-200 border-2 p-2 flex items-center px-4 py-5 md:px-14 lg:px-16 w-[80%] mx-auto">
-                <Link className='text-2xl font-semibold text-slate-700 px-8 underline' to='/'>Home</Link>
+            <div className="mt-2 border-b-slate-200 border-2 p-2 flex items-center px-4 py-5 md:px-14 lg:px-16 w-[80%] mx-auto justify-between">
+               <div className='flex items-center'>
+               <Link className='text-2xl font-semibold text-slate-700 px-8 underline' to='/'>Home</Link>
                 <span className='text-2xl'><FcNext /></span>
                 <Link className='text-2xl font-semibold text-slate-700 px-8 underline' to='/courses'>Courses</Link>
+               </div>
+                <button className='text-white bg-rose-600 py-1 px-10 rounded-3xl'>Download PDF</button>
             </div>
             <div className="px-4 py-5 md:px-14 lg:px-16 w-[80%] mx-auto">
                 <h2 className='text-5xl font-bold text-slate-900 mb-6'>{title}</h2>
@@ -41,11 +44,16 @@ const CategoryDetails = () => {
                         <h2 className="mt-4 font-bold text-4xl text-slate-800">
                             Course Requirements.
                         </h2>
-                        <ul>
-                        {
-                            requirements.map(l => console.log(l))
-                        }
+                        <ul className='mt-6'>
+                           <li className='list-disc text-2xl font-bold text-gray-600 mt-4'>{requirements.requ1}</li>
+                           <li className='list-disc text-2xl font-bold text-gray-600 mt-4'>{requirements.requ2}</li>
+                           <li className='list-disc text-2xl font-bold text-gray-600 mt-4'>{requirements.requ2}</li>
+                           <li className='list-disc text-2xl font-bold text-gray-600 mt-4'>{requirements.requ3}</li>
+                           <li className='list-disc text-2xl font-bold text-gray-600 mt-4'>{requirements.requ4}</li>
                         </ul>
+                        <Link>
+                            <button className='bg-rose-700 py-2 px-14 rounded-sm text-semibold text-gray-200 mt-6 border-b-2 border-slate-900'>Learn More</button>
+                        </Link>
                     </div>
                 </div>
             </div>

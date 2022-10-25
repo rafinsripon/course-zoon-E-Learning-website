@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-    <div className="px-4 py-5 md:px-14 lg:px-16">
+    <div className="px-4 py-5 md:px-14 lg:px-16 border-b-2 border-b-gray-200">
       <div className="relative flex items-center justify-between">
         <div className="flex items-center">
         
@@ -85,16 +85,6 @@ const Header = () => {
               className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
             >
               Login
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              aria-label="Sign up"
-              title="Sign up"
-            >
-              Sign up
             </Link>
           </li>
         </ul>
@@ -217,16 +207,6 @@ const Header = () => {
                         className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Login
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/"
-                        className="font-medium tracking-wide text-gray-900 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        aria-label="Sign up"
-                        title="Sign up"
-                      >
-                        Sign up
                       </Link>
                     </li>
                   </ul>
