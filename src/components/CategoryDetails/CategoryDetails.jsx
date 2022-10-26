@@ -2,20 +2,23 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import detailsImg from '../../assets/image/detail.jpg';
 import { FcAlarmClock, FcManager, FcNext } from "react-icons/fc";
+import Pdf from "react-to-pdf";
+const ref = React.createRef();
 
 const CategoryDetails = () => {
     const category = useLoaderData();
     const {otherInfo, title, author, img_url, details, requirements} = category;
+
     // console.log(category)
     return (
-        <div className='mb-20 '>
+        <div className='mb-20' ref={ref}>
             <div className='relative'>
                 <img className='w-full ' src={detailsImg} alt="" />
                 <div className='absolute bottom-20 left-32'>
-                <h2 className='text-6xl font-bold text-gray-500 mb-4'>{category.name}</h2>
+                <h2 className='text-6xl font-bold text-gray-300 mb-4'>{category.name}</h2>
                 <div className="flex items-center mt-16">
-                    <span className='text-6xl font-bold text-slate-800 flex'><FcManager /> {otherInfo.age}</span>
-                    <span className='flex text-6xl font-bold text-rose-700 ml-20'><FcAlarmClock /> {otherInfo.time}</span>
+                    <span className='text-4xl font-bold text-slate-100 flex'><FcManager /> {otherInfo.age}</span>
+                    <span className='flex text-4xl font-bold text-gray-100 ml-20'><FcAlarmClock /> {otherInfo.time}</span>
                 </div>
                 </div>
             </div>
@@ -26,7 +29,9 @@ const CategoryDetails = () => {
                 <span className='text-2xl'><FcNext /></span>
                 <Link className='text-2xl font-semibold text-slate-700 px-8 underline' to='/courses'>Courses</Link>
                </div>
-                <button className='text-white bg-rose-600 py-1 px-10 rounded-3xl'>Download PDF</button>
+               <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button className='text-white bg-rose-600 py-1 px-10 rounded-3xl' onClick={toPdf}>Download PDF</button>}
+      </Pdf>
             </div>
             <div className="px-4 py-5 md:px-14 lg:px-16 w-[80%] mx-auto">
                 <h2 className='text-5xl font-bold text-slate-900 mb-6'>{title}</h2>
@@ -36,7 +41,7 @@ const CategoryDetails = () => {
                         <p className='text-xl font-bold'>{author.name}</p>
                     </div>
                     <div className='mt-4'>
-                        <img className='w-full' src={img_url} alt="" />
+                        <img className='w-full h-[600px]' src={img_url} alt="" />
                         <h2 className="mt-4 font-bold text-4xl text-slate-800">
                             Course Description.
                         </h2>
@@ -51,8 +56,8 @@ const CategoryDetails = () => {
                            <li className='list-disc text-2xl font-bold text-gray-600 mt-4'>{requirements.requ3}</li>
                            <li className='list-disc text-2xl font-bold text-gray-600 mt-4'>{requirements.requ4}</li>
                         </ul>
-                        <Link>
-                            <button className='bg-rose-700 py-2 px-14 rounded-sm text-semibold text-gray-200 mt-6 border-b-2 border-slate-900'>Learn More</button>
+                        <Link to="/checkout">
+                            <button className='bg-rose-700 py-2 px-14 rounded-sm text-semibold text-gray-200 mt-6 border-b-2 border-slate-900'>Get Premium Access</button>
                         </Link>
                     </div>
                 </div>

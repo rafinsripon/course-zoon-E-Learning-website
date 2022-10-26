@@ -10,12 +10,13 @@ const Courses = () => {
             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-3">
             <div className="lg:col-span-1 col-span-0 p-6 shadow-xl w-full">
                 {
-                        categories.map(category => {
+                        categories.map((cate) => {
+                            
                             return (
                                 <>
-                                <p key={category.id} className='mb-6'>
-                                    <Link to={`/category/${category.id}`} className='text-xl font-bold text-slate-700 underline'>
-                                    {category.name}
+                                <p key={cate.id} className='mb-6'>
+                                    <Link to={`/category/${cate.id}`} className='text-xl font-bold text-slate-700 underline'>
+                                    {cate.name}
                                     </Link>
                                 </p>
                                 </>
@@ -26,7 +27,7 @@ const Courses = () => {
                 <div className="lg:col-span-3 md:col-span-2 col-span-1">
                     <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3'>
                     {
-                        categories.map(category => <Category 
+                        categories.map((category) => <Category 
                             key={category.id}
                             category={category}
                          />)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import loginImg from '../../assets/image/signup1.png';
 import { FaGithubSquare } from "react-icons/fa";
@@ -7,31 +7,33 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
-
+    const [error, setError] = useState('');
+    const { createUser } = useContext(AuthContext)
 
     //Handle register submit
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const photoURL = form.photoURL.value;
+        const photourl = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log(name,photoURL, email, password)
-        
-        //signup from firebase
+        console.log(name, photourl, email, password);
+
+        //register
         createUser(email, password)
-        .then(result => {
+        .then((result) => {
             const user = result.user;
-            form.reset();
-            console.log('signUp user:', user)
+            setError('');
+            console.log(user);
         })
-        .catch(error => {
+        .catch((error) => {
             const errorMessage = error.message;
-            console.log('signup error: ', errorMessage);
+            setError(errorMessage);
+            console.log('SignUp Error: ', error);
         })
     }
+    
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 px-4 pt-8 pb-8 lg:px-16 md:px-12 bg-gray-100'>
@@ -39,25 +41,28 @@ const Register = () => {
                 <h1 className="text-3xl font-bold text-center text-slate-400">Register Now</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="space-y-1 text-sm">
-                        <label htmlFor="fullname" className="block dark:text-gray-500 text-lg font-semibold">Full name*</label>
+                        <label htmlFor="name" className="block dark:text-gray-500 text-lg font-semibold">Full name</label>
                         <input type="text" name="name" id="name" placeholder="Full Name" className="w-full px-4 py-3 rounded-md border-2 border-gray-400 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-violet-400" required/>
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label htmlFor="photURL" className="block dark:text-gray-500 text-lg font-semibold">Photo URL*</label>
-                        <input type="text" name="photoURL" id="photoURL" placeholder="Phot URL" className="w-full px-4 py-3 rounded-md border-2 border-gray-400 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-violet-400" />
+                        <label htmlFor="photoURL" className="block dark:text-gray-500 text-lg font-semibold">Photo URL</label>
+                        <input type="text" name="photoURL" id="photoURL" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md border-2 border-gray-400 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-violet-400" />
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label htmlFor="email" className="block dark:text-gray-500 text-lg font-semibold">Email*</label>
+                        <label htmlFor="email" className="block dark:text-gray-500 text-lg font-semibold">Email</label>
                         <input type="email" name="email" id="email" placeholder="You Email" className="w-full px-4 py-3 rounded-md border-2 border-gray-400 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-violet-400" required/>
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label htmlFor="password" className="block dark:text-gray-500 text-lg font-semibold">Password*</label>
+                        <label htmlFor="password" className="block dark:text-gray-500 text-lg font-semibold">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-2 border-gray-400 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-violet-400" required/>
+                        <p className="text-rose-600 font-semibold">
+                            {error}
+                        </p>
                         <div className="flex justify-end text-xs dark:text-gray-400">
                             <Link className='underline text-[16px] font-semibold mt-2' rel="noopener noreferrer" to="#"></Link>
                         </div>
                     </div>
-                    <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 font-bold dark:bg-violet-400">Register</button>
+                    <button type='submit' className="block w-full p-3 text-center rounded-sm dark:text-gray-900 font-bold dark:bg-violet-400">Register</button>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>

@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import { FcBiohazard } from "react-icons/fc";
+
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const {user} = useContext(AuthContext)
-    console.log(user);
+    const {user, logOut} = useContext(AuthContext)
+    const navigate = useNavigate()
+  
+    //Logout from firebase
+  const handleSignOut = () => {
+      logOut()
+      .then(() => {
+        navigate('/login');
+        console.log('Success log out');
+      })
+      .catch(error => {
+          console.log(error);
+      }) 
+  }
+  
+
     return (
     <div className="px-4 py-5 md:px-14 lg:px-16 border-b-2 border-b-gray-200">
       <div className="relative flex items-center justify-between">
@@ -18,26 +34,12 @@ const Header = () => {
             title="Company"
             className="inline-flex items-center mr-8"
           >
-            <svg
-              className="w-8 text-deep-purple-accent-400"
-              viewBox="0 0 24 24"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeMiterlimit="10"
-              stroke="currentColor"
-              fill="none"
-            >
-              <rect x="3" y="1" width="7" height="12" />
-              <rect x="3" y="17" width="7" height="6" />
-              <rect x="14" y="1" width="7" height="6" />
-              <rect x="14" y="11" width="7" height="12" />
-            </svg>
+            <span className='text-4xl'><FcBiohazard /></span>
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-900 uppercase">
-              Kids - School
+            Course - Zone
             </span>
           </Link>
-          <ul className="flex items-center hidden space-x-8 lg:flex">
+          <ul className="flex items-center hidden space-x-8 lg:flex gap-6 ml-8">
             <li>
               <NavLink
                 to="/"
@@ -81,21 +83,36 @@ const Header = () => {
           </ul>
         </div>
         <ul className="flex items-center hidden space-x-8 lg:flex">
-          <li className='flex gap-4'>
-            <div className=''>
-            {user?.displayName}
-            </div>
-              <img className='w-6 h-6 rounded-full' src={user?.photoURL} alt="" />
-          </li>
           <li>
-            <Link
-              to="/login"
-              aria-label="Sign in"
-              title="Sign in"
-              className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
-            >
-              Login
-            </Link>
+          {/* <button onClick={handleSignOut} className='font-bold text-slate-900'>Log Out</button> */}
+          <div className='flex items-center gap-4' >
+            {
+                user?.uid ? <>
+                <span className='fw-bold fs-5 text-secondary'>{user?.displayName}</span>
+                <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
+                <button onClick={handleSignOut} className='font-bold text-slate-900'>Log Out</button>
+                </>
+                :
+                <>
+                <Link
+                  to="/login"
+                  aria-label="log in"
+                  title="log in"
+                  className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  >
+                  Log In
+              </Link>
+                </>
+            }
+          </div>
+          {/* <Link
+                  to="/login"
+                  aria-label="log in"
+                  title="log in"
+                  className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  >
+                  Log In
+              </Link> */}
           </li>
         </ul>
         <div className="lg:hidden">
@@ -147,7 +164,7 @@ const Header = () => {
                         <rect x="14" y="11" width="7" height="12" />
                       </svg>
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Kids - School
+                      Course - Zone
                       </span>
                     </Link>
                   </div>

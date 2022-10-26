@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Category = ({category}) => {
-    const {rating, title, img_url, details, id, author} = category;
+    const {rating, title, img_url, details, id} = category;
     // console.log(category);
     return (
         <div className='border-2 border-rose-600 relative h-[28rem]'>
