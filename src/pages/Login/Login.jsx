@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const {signIn, signWithGoogle} = useContext(AuthContext)
+    const {signIn, signWithGoogle, signWithGithub} = useContext(AuthContext)
     const navigate = useNavigate();
     //private route location setup
     const location = useLocation();
@@ -46,12 +46,29 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             navigate(from, {replace: true});
-            toast.success('🦄WOW,LogIn Successfully Done', {autoClose: 500})
+            toast.success('🦄WOW,GoogleLogIn Successfully Done', {autoClose: 500})
             console.log(user);
         })
         .catch(error => {
             const errorMessage = error.message;
             setError(errorMessage);
+            console.log('Google Sign in: ', errorMessage);
+        })
+    }
+
+    //Sign With github
+    const handleGithubSignIn = () => {
+        signWithGithub()
+        .then(result => {
+            const user = result.user;
+            navigate(from, {replace: true});
+            toast.success('🦄WOW,Github LogIn Successfully Done', {autoClose: 500})
+            console.log(user);
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            setError(errorMessage);
+            toast.error('Opps, Github login Error', {autoClose: 500})
             console.log('Google Sign in: ', errorMessage);
         })
     }
@@ -87,7 +104,7 @@ const Login = () => {
                     <button onClick={handleGoogleSignIn} aria-label="Log in with Google" className="p-3 rounded-sm text-3xl">
                         <FcGoogle />
                     </button>
-                    <button aria-label="Log in with GitHub" className="p-3 rounded-sm text-slate-900 text-3xl">
+                    <button onClick={handleGithubSignIn} aria-label="Log in with GitHub" className="p-3 rounded-sm text-slate-900 text-3xl">
                         <FaGithubSquare />
                     </button>
                 </div>

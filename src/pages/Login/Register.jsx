@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser, updateUseProfile, signWithGoogle } = useContext(AuthContext)
+    const { createUser, updateUseProfile, signWithGoogle, signWithGithub } = useContext(AuthContext)
     const navigate = useNavigate()
 
     //Handle register submit
@@ -57,12 +57,29 @@ const Register = () => {
         signWithGoogle()
         .then(result => {
             const user = result.user;
-            navigate('/login');
+            navigate('/');
             console.log(user);
         })
         .catch(error => {
             const errorMessage = error.message;
             setError(errorMessage);
+            console.log('Google Sign in: ', errorMessage);
+        })
+    }
+
+    //Sign With github
+    const handleGithubSignUp = () => {
+        signWithGithub()
+        .then(result => {
+            const user = result.user;
+            navigate('/');
+            toast.success('🦄WOW,Github SignUp Successfully Done', {autoClose: 500})
+            console.log(user);
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            setError(errorMessage);
+            toast.error('Opps, Github SignUp Error', {autoClose: 500})
             console.log('Google Sign in: ', errorMessage);
         })
     }
@@ -106,7 +123,7 @@ const Register = () => {
                     <button onClick={handleGoogleSignUp} aria-label="Log in with Google" className="p-3 rounded-sm text-3xl">
                         <FcGoogle />
                     </button>
-                    <button aria-label="Log in with GitHub" className="p-3 rounded-sm text-slate-900 text-3xl">
+                    <button onClick={handleGithubSignUp} aria-label="Log in with GitHub" className="p-3 rounded-sm text-slate-900 text-3xl">
                         <FaGithubSquare />
                     </button>
                 </div>
