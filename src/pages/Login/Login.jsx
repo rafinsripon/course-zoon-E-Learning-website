@@ -9,7 +9,7 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const {signIn} = useContext(AuthContext)
+    const {signIn, signWithGoogle} = useContext(AuthContext)
     const navigate = useNavigate();
     //private route location setup
     const location = useLocation();
@@ -35,6 +35,21 @@ const Login = () => {
             const errorMessage = error.message;
             setError(errorMessage);
             console.log('Sign In error: ', errorMessage);
+        })
+    }
+
+    //handle Google sign in
+    const handleGoogleSignIn = () => {
+        signWithGoogle()
+        .then(result => {
+            const user = result.user;
+            navigate(from, {replace: true});
+            console.log(user);
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            setError(errorMessage);
+            console.log('Google Sign in: ', errorMessage);
         })
     }
    
@@ -66,7 +81,7 @@ const Login = () => {
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
                 </div>
                 <div className="flex justify-center space-x-4">
-                    <button  aria-label="Log in with Google" className="p-3 rounded-sm text-3xl">
+                    <button onClick={handleGoogleSignIn} aria-label="Log in with Google" className="p-3 rounded-sm text-3xl">
                         <FcGoogle />
                     </button>
                     <button aria-label="Log in with GitHub" className="p-3 rounded-sm text-slate-900 text-3xl">

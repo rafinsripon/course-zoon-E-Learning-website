@@ -7,6 +7,7 @@ import { FcBiohazard } from "react-icons/fc";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [toggle, setToggle] = useState(false)
     const {user, logOut} = useContext(AuthContext)
     const navigate = useNavigate()
   
@@ -89,7 +90,7 @@ const Header = () => {
             {
                 user?.uid ? <>
                 <span className='fw-bold fs-5 text-secondary'>{user?.displayName}</span>
-                <img className='w-8 h-8 rounded-full' src={user?.photoURL} alt="" />
+                <img title={user?.displayName} className='w-8 h-8 rounded-full border-2 border-pink-600 cursor-pointer' src={user?.photoURL} alt="" />
                 <button onClick={handleSignOut} className='font-bold text-slate-900'>Log Out</button>
                 </>
                 :
@@ -105,15 +106,16 @@ const Header = () => {
                 </>
             }
           </div>
-          {/* <Link
-                  to="/login"
-                  aria-label="log in"
-                  title="log in"
-                  className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                  >
-                  Log In
-              </Link> */}
           </li>
+          <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-900">
+          {/* <span>Light</span> */}
+          <span onClick={() => setToggle(!toggle)} className="relative">
+            <input id="Toggle1" type="checkbox" className="hidden peer" />
+            <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-violet-400"></div>
+            <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
+          </span>
+          {/* <span>Dark</span> */}
+        </label>
         </ul>
         <div className="lg:hidden">
           <button

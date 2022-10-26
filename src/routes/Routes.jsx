@@ -4,6 +4,7 @@ import Checkout from "../components/Checkout/Checkout";
 import Main from "../layout/Main";
 import Blog from "../pages/Blog/Blog";
 import Courses from "../pages/Courses/Courses";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Faq from "../pages/Faq/Faq";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
@@ -14,6 +15,7 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',

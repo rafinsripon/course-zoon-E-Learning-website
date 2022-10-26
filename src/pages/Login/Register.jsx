@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/image/signup1.png';
 import { FaGithubSquare } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -8,29 +8,59 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUseProfile, signWithGoogle } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     //Handle register submit
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const photourl = form.photoURL.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photourl, email, password);
+        // console.log(name, photoURL, email, password);
 
         //register
         createUser(email, password)
         .then((result) => {
             const user = result.user;
             setError('');
+            handleUpdateUserProfile(name, photoURL)
             console.log(user);
         })
         .catch((error) => {
             const errorMessage = error.message;
             setError(errorMessage);
             console.log('SignUp Error: ', error);
+        })
+    }
+
+    //update user profile
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUseProfile(profile)
+        .then(() => {})
+        .catch(error => {
+            console.log("upaded profile Error", error)
+        })
+    }
+
+    //Hanlde google sign In
+    const handleGoogleSignUp = () => {
+        signWithGoogle()
+        .then(result => {
+            const user = result.user;
+            navigate('/login');
+            console.log(user);
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            setError(errorMessage);
+            console.log('Google Sign in: ', errorMessage);
         })
     }
     
@@ -70,7 +100,7 @@ const Register = () => {
                     <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
                 </div>
                 <div className="flex justify-center space-x-4">
-                    <button aria-label="Log in with Google" className="p-3 rounded-sm text-3xl">
+                    <button onClick={handleGoogleSignUp} aria-label="Log in with Google" className="p-3 rounded-sm text-3xl">
                         <FcGoogle />
                     </button>
                     <button aria-label="Log in with GitHub" className="p-3 rounded-sm text-slate-900 text-3xl">

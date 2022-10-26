@@ -5,21 +5,18 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB3cr0lr6DLfCmRLea3qJstZR0NHX7iO6w",
-  authDomain: "kids-school-f2ad8.firebaseapp.com",
-  projectId: "kids-school-f2ad8",
-  storageBucket: "kids-school-f2ad8.appspot.com",
-  messagingSenderId: "647924512432",
-  appId: "1:647924512432:web:d2fd14cb8c384e80b1ad75"
+  apiKey: "AIzaSyA28mzjmxN3LTktXunGgLK4q5xwS8olb9E",
+  authDomain: "course-zone-4d55c.firebaseapp.com",
+  projectId: "course-zone-4d55c",
+  storageBucket: "course-zone-4d55c.appspot.com",
+  messagingSenderId: "292743132760",
+  appId: "1:292743132760:web:a524ac2c038520e0acfc2d"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 export default app;
-
-
-
 
 
 
