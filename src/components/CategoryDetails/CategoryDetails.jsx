@@ -46,7 +46,7 @@ const CategoryDetails = () => {
                         </h2>
                         <p className='mt-2 font-semibold text-gray-600'>{details}</p>
                         <h2 className="mt-4 font-bold text-4xl text-slate-800">
-                            Course Requirements.
+                        What you willl learn.
                         </h2>
                         <ul className='mt-6'>
                            <li className='list-disc text-2xl font-bold text-gray-600 mt-4'>{requirements.requ1}</li>

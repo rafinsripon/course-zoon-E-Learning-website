@@ -1,15 +1,17 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { ImStarFull, ImStarHalf, ImBookmarks } from "react-icons/im";
 import { toast } from 'react-toastify';
 
 const Checkout = () => {
     const checkoutData = useLoaderData();
+    const navigate = useNavigate()
     const {author, img_url, title, otherInfo} = checkoutData;
 
     //handle purches
     const handlePurches = () => {
         toast('🦄WOW, Purchese Success Full', {autoClose: 500})
+        navigate('/')
     }
     return (
         <div className='px-4 py-5 md:px-14 lg:px-16 '>
@@ -76,7 +78,7 @@ const Checkout = () => {
                         <h1 className="my-3 text-4xl font-bold">Purchase Now</h1>
                         <p className="text-sm dark:text-gray-400">Purchase in to access your account</p>
                     </div>
-                    <form novalidate="" action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
+                    <form noValidate="" action="" className="space-y-12 ng-untouched ng-pristine ng-valid">
                         <div className="space-y-4">
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm">Email address</label>

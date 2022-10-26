@@ -28,6 +28,7 @@ const Register = () => {
             const user = result.user;
             form.reset();
             setError('');
+            navigate('/');
             handleUpdateUserProfile(name, photoURL)
             toast.success('🦄WOW, Register Successfully Done', {autoClose: 500})
             console.log(user);

@@ -4,6 +4,9 @@ const Blog = () => {
     return (
         <section className="py-6 sm:py-12 dark:bg-gray-00 dark:text-gray-100">
 	        <div className="container p-6 mx-auto space-y-8 lg:px-24 md:px-6 px-2">
+            <h2 className="text-6xl text-rose-400 mt-6 mb-16 font-bold">
+                4 - Interviews Quetions
+            </h2>
             <div className="bg-[#dad9d954] p-8 rounded-lg border-8 border-gray-200">
             <div className='text-slate-900'>
                 <h2 className='text-3xl font-bold'>What Is Cors??</h2>
