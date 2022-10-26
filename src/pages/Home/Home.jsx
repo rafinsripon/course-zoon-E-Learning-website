@@ -1,14 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import banner from '../../assets/image/banner.jpg';
 import './Home.css'
 
 const Home = () => {
     return (
         <div className="imge">
-            <div className=" ">
-                {/* <img className='w-full h-[580px] relative' src={banner} alt="" /> */}
-            </div>
             <div className="px-4 py-28 lg:px-16 md:px-12 lg:w-2/4">
             <span
             title='rafins'

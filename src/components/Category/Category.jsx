@@ -6,7 +6,7 @@ const Category = ({category}) => {
     // console.log(category);
     return (
         <div className='border-2 border-rose-600 relative h-[28rem]'>
-            <img className='w-full h-[200px]' src={img_url} alt="" />
+            <img className='w-full h-[200px]' src={img_url} alt="Img Not Found!" />
             <div className="px-3 mt-3">
             <h2 className='font-bold text-xl'>{title}</h2>
             <p className='font-semibold text-gray-700'>{details.slice(0, 80) + '...'}</p>

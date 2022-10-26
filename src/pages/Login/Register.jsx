@@ -5,6 +5,7 @@ import { FaGithubSquare } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -21,12 +22,14 @@ const Register = () => {
         const password = form.password.value;
         // console.log(name, photoURL, email, password);
 
-        //register
+        //Register Form Firebase
         createUser(email, password)
         .then((result) => {
             const user = result.user;
+            form.reset();
             setError('');
             handleUpdateUserProfile(name, photoURL)
+            toast.success('🦄WOW, Register Successfully Done', {autoClose: 500})
             console.log(user);
         })
         .catch((error) => {
@@ -36,7 +39,7 @@ const Register = () => {
         })
     }
 
-    //update user profile
+    //update user profile form Firebase
     const handleUpdateUserProfile = (name, photoURL) => {
         const profile = {
             displayName: name,

@@ -10,18 +10,19 @@ const Courses = () => {
             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-3">
             <div className="lg:col-span-1 col-span-0 p-6 shadow-xl w-full">
                 {
-                        categories.map((cate) => {
+                        categories.map((cate, index) => <p key={index} className='mb-6'>
+                        <Link to={`/category/${cate.id}`} className='text-xl font-bold text-slate-700 underline'>
+                        {cate.name}
+                        </Link>
+                    </p>)
+                        // {
                             
-                            return (
-                                <>
-                                <p key={cate.id} className='mb-6'>
-                                    <Link to={`/category/${cate.id}`} className='text-xl font-bold text-slate-700 underline'>
-                                    {cate.name}
-                                    </Link>
-                                </p>
-                                </>
-                            )
-                        })
+                        //     // return (
+                        //     //     <>
+                                
+                        //     //     </>
+                        //     // )
+                        // })
                     }
                 </div>
                 <div className="lg:col-span-3 md:col-span-2 col-span-1">

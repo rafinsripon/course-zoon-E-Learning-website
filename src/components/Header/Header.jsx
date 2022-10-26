@@ -43,6 +43,7 @@ const Header = () => {
           <ul className="flex items-center hidden space-x-8 lg:flex gap-6 ml-8">
             <li>
               <NavLink
+               
                 to="/"
                 aria-label="Our product"
                 title="Our product"
@@ -52,40 +53,39 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/courses"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Courses
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/faq"
                 aria-label="Product pricing"
                 title="Product pricing"
                 className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 FAQ
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/blog"
                 aria-label="About us"
                 title="About us"
                 className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Blog
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>
-          {/* <button onClick={handleSignOut} className='font-bold text-slate-900'>Log Out</button> */}
           <div className='flex items-center gap-4' >
             {
                 user?.uid ? <>
@@ -107,7 +107,7 @@ const Header = () => {
             }
           </div>
           </li>
-          <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-900">
+          <label htmlFor="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-900">
           {/* <span>Light</span> */}
           <span onClick={() => setToggle(!toggle)} className="relative">
             <input id="Toggle1" type="checkbox" className="hidden peer" />
@@ -150,21 +150,7 @@ const Header = () => {
                       title="Company"
                       className="inline-flex items-center"
                     >
-                      <svg
-                        className="w-8 text-deep-purple-accent-400"
-                        viewBox="0 0 24 24"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        stroke="currentColor"
-                        fill="none"
-                      >
-                        <rect x="3" y="1" width="7" height="12" />
-                        <rect x="3" y="17" width="7" height="6" />
-                        <rect x="14" y="1" width="7" height="6" />
-                        <rect x="14" y="11" width="7" height="12" />
-                      </svg>
+                      <span className='text-4xl'><FcBiohazard /></span>
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                       Course - Zone
                       </span>
@@ -189,44 +175,44 @@ const Header = () => {
                 <nav>
                   <ul className="space-y-4">
                     <li>
-                      <Link
+                      <NavLink
                         to="/"
                         aria-label="Our product"
                         title="Our product"
                         className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Home
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/courses"
                         aria-label="Our product"
                         title="Our product"
                         className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Courses
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/faq"
                         aria-label="Product pricing"
                         title="Product pricing"
                         className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         FAQ
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link
+                      <NavLink
                         to="/blog"
                         aria-label="About us"
                         title="About us"
                         className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
                         Blog
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
                       <Link

@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -23,10 +24,11 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
-        //sign in
+        //sign in Form Firebase
         signIn(email, password)
         .then((result) => {
             const user = result.user;
+            form.reset();
             navigate(from, {replace: true});
             setError('');
             console.log(user);
@@ -44,6 +46,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             navigate(from, {replace: true});
+            toast.success('🦄WOW,LogIn Successfully Done', {autoClose: 500})
             console.log(user);
         })
         .catch(error => {

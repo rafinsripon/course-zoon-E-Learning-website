@@ -5,8 +5,10 @@ import app from '../firebase/firebase.config';
 import { useEffect } from 'react';
 
 
-//Auth context setup
+//Firebase Auth
 const auth = getAuth(app);
+
+//Auth context setup
 export const AuthContext = createContext();
 
 
