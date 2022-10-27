@@ -14,7 +14,7 @@ const CategoryDetails = () => {
     return (
         <div className='mb-20' ref={ref}>
             <div className='relative z_indexImg'>
-                <img className='w-full' src={detailsImg} alt="" />
+                <img className='w-full' src={detailsImg} alt="Img Not Found!" />
                 <div className='absolute lg:bottom-20 md:bottom-4 bottom-0 lg:left-32 md:left-4 left-4'>
                 <h2 className='lg:text-6xl md:text-xl text-base font-bold text-gray-300 mb-4'>{category.name}</h2>
                 <div className="flex items-center lg:mt-16 md:mt-8 mt-0">
@@ -37,11 +37,11 @@ const CategoryDetails = () => {
                 <h2 className='lg:text-5xl md:text-3xl text-xl font-bold text-slate-900 mb-6'>{title}</h2>
                 <div className=''>
                     <div className='flex items-center gap-2'>
-                        <img className='w-16 h-16 rounded-full' src={author.img} alt="" />
+                        <img className='w-16 h-16 rounded-full' src={author?.img} alt="Img Not Found!" />
                         <p className='text-xl font-bold'>{author.name}</p>
                     </div>
                     <div className='mt-4'>
-                        <img className='w-full h-[600px]' src={img_url} alt="" />
+                        <img className='w-full h-[600px]' src={img_url} alt="Img Not Found!" />
                         <h2 className="mt-4 font-bold text-4xl text-slate-800">
                             About Course Description.
                         </h2>

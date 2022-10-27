@@ -15,14 +15,6 @@ const Courses = () => {
                         {cate.name}
                         </Link>
                     </p>)
-                        // {
-                            
-                        //     // return (
-                        //     //     <>
-                                
-                        //     //     </>
-                        //     // )
-                        // })
                     }
                 </div>
                 <div className="lg:col-span-3 md:col-span-2 col-span-1">

@@ -106,11 +106,11 @@ const Checkout = () => {
                     <h2 className='text-3xl font-bold text-slate-900 mb-6 mt-6'>{title}</h2>
                         <div className="border-2 border-gray-200 shadow-sm p-4 rounded-lg">
                         <div className='flex items-center gap-2'>
-                            <img className='w-12 h-12 rounded-full' src={author.img} alt="" />
+                            <img className='w-12 h-12 rounded-full' src={author?.img} alt="Img Not Found!" />
                             <p className='text-xl font-bold'>{author.name}</p>
                         </div>
                         <div className='mt-4'>
-                            <img className='w-full h-[300px] rounded-lg' src={img_url} alt="" />
+                            <img className='w-full h-[300px] rounded-lg' src={img_url} alt="Img Not Found!" />
                         </div>
                         <div className='flex justify-between items-center mt-4'>
                             <p className='text-xl font-bold text-slate-800'>Course duration: {otherInfo.age}</p>
