@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import detailsImg from '../../assets/image/detail.jpg';
 import { FcAlarmClock, FcManager, FcNext } from "react-icons/fc";
+import '../../assets/styles/Main.css'
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
 
@@ -12,19 +13,19 @@ const CategoryDetails = () => {
     // console.log(category)
     return (
         <div className='mb-20' ref={ref}>
-            <div className='relative'>
-                <img className='w-full ' src={detailsImg} alt="" />
-                <div className='absolute bottom-20 left-32'>
-                <h2 className='text-6xl font-bold text-gray-300 mb-4'>{category.name}</h2>
-                <div className="flex items-center mt-16">
-                    <span className='text-4xl font-bold text-slate-100 flex'><FcManager /> {otherInfo.age}</span>
-                    <span className='flex text-4xl font-bold text-gray-100 ml-20'><FcAlarmClock /> {otherInfo.time}</span>
+            <div className='relative z_indexImg'>
+                <img className='w-full' src={detailsImg} alt="" />
+                <div className='absolute lg:bottom-20 md:bottom-4 bottom-0 lg:left-32 md:left-4 left-4'>
+                <h2 className='lg:text-6xl md:text-xl text-base font-bold text-gray-300 mb-4'>{category.name}</h2>
+                <div className="flex items-center lg:mt-16 md:mt-8 mt-0">
+                    <span className='lg:text-4xl md:text-xl text-base font-bold text-slate-100 flex'><FcManager /> {otherInfo.age}</span>
+                    <span className='flex lg:text-4xl md:text-xl text-base font-bold text-gray-100 lg:ml-20 md:ml-0 md-0'><FcAlarmClock /> {otherInfo.time}</span>
                 </div>
                 </div>
             </div>
             {/* ======header */}
-            <div className="mt-2 border-b-slate-200 border-2 p-2 flex items-center px-4 py-5 md:px-14 lg:px-16 w-[80%] mx-auto justify-between">
-               <div className='flex items-center'>
+            <div className="cateContainer mt-2 border-b-slate-200 border-2 p-2 flex items-center px-4 py-5 md:px-14 lg:px-16 lg:w-[80%] w-full mx-auto justify-between">
+               <div className='cateHeader flex items-center'>
                <Link className='text-2xl font-semibold text-slate-700 px-8 underline' to='/'>Home</Link>
                 <span className='text-2xl'><FcNext /></span>
                 <Link className='text-2xl font-semibold text-slate-700 px-8 underline' to='/courses'>Courses</Link>
@@ -33,7 +34,7 @@ const CategoryDetails = () => {
                 {({ toPdf }) => <button className='text-white bg-rose-600 py-1 px-10 rounded-3xl' onClick={toPdf}>Download PDF</button>}</Pdf>
             </div>
             <div className="px-4 py-5 md:px-14 lg:px-16 w-[80%] mx-auto">
-                <h2 className='text-5xl font-bold text-slate-900 mb-6'>{title}</h2>
+                <h2 className='lg:text-5xl md:text-3xl text-xl font-bold text-slate-900 mb-6'>{title}</h2>
                 <div className=''>
                     <div className='flex items-center gap-2'>
                         <img className='w-16 h-16 rounded-full' src={author.img} alt="" />

@@ -47,7 +47,7 @@ const Header = () => {
                 to="/"
                 aria-label="Our product"
                 title="Our product"
-                className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-semibold text-lg tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Home
               </NavLink>
@@ -57,7 +57,7 @@ const Header = () => {
                 to="/courses"
                 aria-label="Our product"
                 title="Our product"
-                className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-semibold text-lg tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Courses
               </NavLink>
@@ -67,7 +67,7 @@ const Header = () => {
                 to="/faq"
                 aria-label="Product pricing"
                 title="Product pricing"
-                className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-semibold text-lg tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 FAQ
               </NavLink>
@@ -77,7 +77,7 @@ const Header = () => {
                 to="/blog"
                 aria-label="About us"
                 title="About us"
-                className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                className="font-semibold text-lg tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Blog
               </NavLink>
@@ -99,7 +99,7 @@ const Header = () => {
                   to="/login"
                   aria-label="log in"
                   title="log in"
-                  className="font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className="font-semibold text-lg tracking-wide text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
                   >
                   Log In
               </Link>
@@ -139,7 +139,7 @@ const Header = () => {
             </svg>
           </button>
           {isMenuOpen && (
-            <div className="absolute top-0 left-0 w-full">
+            <div className="absolute top-0 left-0 w-full z_index">
               <div className="p-5 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>

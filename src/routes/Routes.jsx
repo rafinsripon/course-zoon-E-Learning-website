@@ -24,16 +24,16 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses />,
-                loader: () => fetch('http://localhost:5000/categories')
+                loader: () => fetch('https://course-zone-server-nine.vercel.app/categories')
             },
             {
                 path: '/category/:id',
                 element: <CategoryDetails />,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) => fetch(`https://course-zone-server-nine.vercel.app/category/${params.id}`)
             },
             {
                 path: '/checkout/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`),
+                loader: ({params}) => fetch(`https://course-zone-server-nine.vercel.app/category/${params.id}`),
                 element: <PrivateRoute>
                     <Checkout></Checkout>
                 </PrivateRoute>

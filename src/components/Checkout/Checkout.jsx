@@ -60,7 +60,7 @@ const Checkout = () => {
                                 height="24"
                             />
                             </svg>
-                            <span className="relative text-rose-600">WelCome</span>
+                            <span className="z_indexCheckOut relative text-rose-600">WelCome</span>
                         </span>{' '}
                         to Our Checkout Page
                         </h2>
@@ -94,7 +94,7 @@ const Checkout = () => {
                             <div className="flex justify-between mb-2">
                                 <label htmlFor="textarea" className="text-sm">Enter Message</label>
                             </div>
-                            <textarea className='text-gray-100 bg-gray-900 border-2 border-gray-500' rows="4" cols="50" name="comment" form="usrform" placeholder='Enter text here...'></textarea>
+                            <textarea className='text-gray-100 w-full bg-gray-900 border-2 border-gray-500' rows="4" cols="50" name="comment" form="usrform" placeholder='Enter text here...'></textarea>
                             </div>
                         </div>
                         <div className="space-y-2">

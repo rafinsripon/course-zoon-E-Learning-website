@@ -1,0 +1,23 @@
+
+/* ========responsive css====== */
+
+@media screen and (max-width: 576px) {
+    .cateHeader {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .cateContainer{
+        justify-content: space-around;
+    } 
+    .z_indexCheckOut{
+        z-index: -1;
+    }
+    
+    .z_index{
+        z-index: 999;
+    }
+    .z_indexImg{
+        z-index: -1;
+    }
+}
+
